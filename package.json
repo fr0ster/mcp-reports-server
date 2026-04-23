@@ -1,0 +1,86 @@
+{
+  "name": "@mcp-abap-adt/reports-server",
+  "version": "0.0.1",
+  "description": "Domain-neutral MCP server + reusable primitives for building business reports from tabular data (group-by, pivot, join, render to CSV/Markdown/HTML).",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "reports-mcp": "dist/bin/stdio.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./primitives": {
+      "types": "./dist/primitives/index.d.ts",
+      "default": "./dist/primitives/index.js"
+    },
+    "./renderers": {
+      "types": "./dist/renderers/index.d.ts",
+      "default": "./dist/renderers/index.js"
+    },
+    "./registry": {
+      "types": "./dist/registry/index.d.ts",
+      "default": "./dist/registry/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "clean": "node -e \"const fs=require('fs');['dist','tsconfig.tsbuildinfo'].forEach(p=>{try{fs.rmSync(p,{recursive:true,force:true})}catch{}})\"",
+    "lint": "npx biome check --write src",
+    "lint:check": "npx biome check src",
+    "format": "npx biome format --write src",
+    "build": "npm run --silent clean && npx biome check src --diagnostic-level=error && npx tsc -p tsconfig.json",
+    "build:fast": "npx tsc -p tsconfig.json",
+    "test": "npx jest --runInBand",
+    "test:check": "npx tsc --noEmit --project tsconfig.test.integration.json",
+    "prepublishOnly": "npm run build"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fr0ster/mcp-reports-server.git"
+  },
+  "homepage": "https://github.com/fr0ster/mcp-reports-server#readme",
+  "bugs": {
+    "url": "https://github.com/fr0ster/mcp-reports-server/issues"
+  },
+  "author": "Oleksii Kyslytsia <oleksij.kyslytsja@gmail.com>",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "reports",
+    "group-by",
+    "pivot",
+    "csv",
+    "markdown",
+    "tools"
+  ],
+  "peerDependencies": {
+    "@mcp-abap-adt/interfaces": "^7.1.0",
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.4",
+    "@mcp-abap-adt/interfaces": "^7.1.0",
+    "@mcp-abap-adt/logger": "^0.1.4",
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.2.1",
+    "jest": "^30.0.5",
+    "ts-jest": "^29.4.1",
+    "typescript": "^5.9.2"
+  }
+}
