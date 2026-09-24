@@ -1,6 +1,6 @@
 {
   "name": "@mcp-abap-adt/reports-server",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Domain-neutral MCP server + reusable primitives for building business reports from tabular data (group-by, pivot, join, render to CSV/Markdown/HTML).",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
