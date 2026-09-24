@@ -13,7 +13,12 @@ module.exports = {
   // one lands. Remove the flag with that test, so an empty suite starts failing
   // again the moment there is something to run.
   passWithNoTests: true,
-  maxWorkers: 1,
-  maxConcurrency: 1,
-  testTimeout: 15 * 60 * 1000,
+  // Nothing else is set on purpose. `maxWorkers: 1`, `maxConcurrency: 1` and a
+  // fifteen-minute `testTimeout` came from the same SAP repository as the missing
+  // global setup: there, tests share objects in one ABAP system and a single
+  // lock-and-activate round can genuinely take minutes, so they must not run in
+  // parallel. This package renders Markdown. Serialising it would only make its
+  // suite slower, and a fifteen-minute ceiling would turn a hung test into a
+  // fifteen-minute wait with no name and no stack — jest's 5s default reports it
+  // as an ordinary timeout instead.
 };
