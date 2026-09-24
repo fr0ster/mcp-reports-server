@@ -54,7 +54,7 @@
     "url": "https://github.com/fr0ster/mcp-reports-server/issues"
   },
   "author": "Oleksii Kyslytsia <oleksij.kyslytsja@gmail.com>",
-  "license": "MIT",
+  "license": "GPL-3.0-only",
   "publishConfig": {
     "access": "public"
   },

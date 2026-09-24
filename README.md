@@ -26,4 +26,6 @@ scaffold only.
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+`GPL-3.0-only` — see [LICENSE](LICENSE).
+
+This is a server you run, not a library you link, which is why it carries the GPL where the contract and client packages in this family carry the LGPL. The GPL asks something of whoever distributes a modified server, not of whoever talks to one over stdio.
