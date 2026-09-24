@@ -69,13 +69,10 @@
     "tools"
   ],
   "peerDependencies": {
-    "@mcp-abap-adt/interfaces": "^7.1.0",
     "@modelcontextprotocol/sdk": "^1.0.0"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.4.4",
-    "@mcp-abap-adt/interfaces": "^7.1.0",
-    "@mcp-abap-adt/logger": "^0.1.4",
     "@modelcontextprotocol/sdk": "^1.0.0",
     "@types/jest": "^30.0.0",
     "@types/node": "^24.2.1",
